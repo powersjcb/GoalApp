@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   validates :username, :password_digest, :session_token, presence: true
   validates :password, length: {minimum: 6, allow_nil: true}
 
+  has_many :goals
+
   after_initialize :ensure_session_token
 
   ### class methods
@@ -52,7 +54,7 @@ class User < ActiveRecord::Base
   def ensure_session_token
     self.session_token ||= User.generate_session_token
   end
-  
+
 
 
 end

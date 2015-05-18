@@ -1,0 +1,16 @@
+  <%= flash_errors %>
+<form action="<%= goals_url %>" method="post">
+  <%= render_auth_token %>
+
+  <label>Title
+    <input type="text" name="goal[title]" value="<%= goal.title %>">
+  </label>
+
+  <label>Title
+    <input type="text" name="goal[body]" value="<%= goal.body %>">
+  </label>
+
+  <input type="checkbox" name="name" value="">
+
+  <input type="submit" value="Create New Goal">
+</form>

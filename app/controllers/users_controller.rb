@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :herd_user, only: [:show]
+
   def new
     @user = User.new
   end
@@ -15,4 +17,13 @@ class UsersController < ApplicationController
     end
   end
 
+
+  def show
+    @user = User.find(params[:id])
+    if @user == current_user
+      @goals = @user.goals
+    else
+      @goals = @user.goals.where('visible = true')
+    end
+  end
 end

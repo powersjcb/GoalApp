@@ -21,6 +21,10 @@ class ApplicationController < ActionController::Base
     session[:session_token] = user.reset_session_token!
   end
 
+  def herd_user
+    redirect_to new_session_url unless logged_in?
+  end
+
   private
 
   def user_params

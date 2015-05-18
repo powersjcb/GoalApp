@@ -13,16 +13,12 @@ module ApplicationHelper
   def flash_errors
     str = ""
     if flash.now[:errors]
-      flash.now[:errors] do |error|
+      flash.now[:errors].each do |error|
         str << "<li>#{error}</li>"
       end
     end
+
     "<ul>#{str}</ul>".html_safe
   end
 
-end
-
-
-def other_flash
-  flash[:errors].join("<br>").html_safe if flash[:errors]
 end

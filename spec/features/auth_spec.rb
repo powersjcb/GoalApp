@@ -1,6 +1,5 @@
-require 'spec_helper'
 require 'rails_helper'
-
+include Helpers
 
 feature "the signup process" do
 
@@ -12,7 +11,7 @@ feature "the signup process" do
   feature "signing up a user" do
 
     it "shows username on the homepage after signup" do
-      visit(new_users_path)
+      visit(new_user_path)
       fill_in("Username", with: "jacob")
       fill_in("Password", with: "foobar")
       click_button("Sign Up")
@@ -47,7 +46,7 @@ feature "logging out" do
     user = create(:user)
     login(user)
 
-    click_button('Log Out')
+    click_link('Log Out')
     visit(root_path)
 
     expect(page).to_not have_content(user.username)
