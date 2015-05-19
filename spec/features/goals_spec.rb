@@ -1,12 +1,13 @@
 require 'rails_helper'
 include Helpers
 
-before :each do
-  user = create(:user)
-  other_user = create(:user, username: "Ned")
-end
 
 feature "show goals user show page" do
+
+  before :each do
+    user = create(:user)
+    other_user = create(:user, username: "Ned")
+  end
 
   it "has a goal page" do
     login(user)
@@ -67,6 +68,10 @@ feature "show goals user show page" do
 end
 
 feature "goals index" do
+  before :each do
+    user = create(:user)
+    other_user = create(:user, username: "Ned")
+  end
 
   it "displays many public goals" do
     create(:goal, title: "Goal 1", visible: true, user_id: user.id)
