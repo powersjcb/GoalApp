@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518205605) do
+ActiveRecord::Schema.define(version: 20150519004022) do
 
   create_table "goals", force: :cascade do |t|
     t.string   "title",                       null: false
     t.string   "body",        default: "",    null: false
-    t.boolean  "visible",     default: true,  null: false
+    t.boolean  "visible",                     null: false
     t.integer  "user_id",                     null: false
-    t.boolean  "completed",   default: false, null: false
+    t.boolean  "completed",                   null: false
     t.date     "target_date",                 null: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false

@@ -6,11 +6,19 @@
     <input type="text" name="goal[title]" value="<%= goal.title %>">
   </label>
 
-  <label>Title
+  <label>Body
     <input type="text" name="goal[body]" value="<%= goal.body %>">
   </label>
 
-  <input type="checkbox" name="name" value="">
+  <label>Date
+    <input type="date" name="goal[target_date]"
+      value="<%= goal.target_date %>">
+  </label>
+
+  <label>Public?
+    <input type="checkbox" name="goal[visible]"
+        value="true" <%= "checked" if goal.visible %>>
+  </label>
 
   <input type="submit" value="Create New Goal">
 </form>

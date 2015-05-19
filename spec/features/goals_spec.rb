@@ -1,11 +1,13 @@
 require 'rails_helper'
 include Helpers
 
-user = create(:user)
-other_user = create(:user, username: "Ned")
-
+before :each do
+  user = create(:user)
+  other_user = create(:user, username: "Ned")
+end
 
 feature "show goals user show page" do
+
   it "has a goal page" do
     login(user)
 
@@ -14,7 +16,7 @@ feature "show goals user show page" do
   end
 
   it "renders new goal on the page" do
-    fail
+
     login(user)
 
     fill_in("Title", with: "Lose 10lbs")

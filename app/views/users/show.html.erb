@@ -1,3 +1,5 @@
 <h1><%= @user.username %> Profile</h1>
 
+<%= render 'goals/form', goal: @goal if current_page?(user_url(@user)) %>
+
 <%= render @goals %>
